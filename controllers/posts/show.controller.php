@@ -1,11 +1,12 @@
 <?php
 
 use Core\Database;
+use Core\Router;
 
 $id = $_GET["id"];
 
 if (empty($id)) {
-    redirect("/posts");
+    Router::redirect("/posts");
 }
 
 $config = require base_path('config.php');

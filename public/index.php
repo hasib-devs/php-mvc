@@ -10,4 +10,10 @@ spl_autoload_register(function ($class) {
     require base_path("{$result}.php");
 });
 
-require base_path("Core/router.php");
+$router = new Core\Router();
+
+require base_path("routes.php");
+
+$currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+$router->route($currentUri, $requestMethod);

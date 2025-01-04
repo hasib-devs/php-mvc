@@ -5,6 +5,7 @@ namespace Core;
 use PDO;
 use PDOStatement;
 use Throwable;
+use Core\Router;
 
 class Database
 {
@@ -23,7 +24,7 @@ class Database
             $this->connection = $pdo;
         } catch (Throwable $e) {
             logger($e->getMessage());
-            abort(Response::SERVER_ERROR);
+            Router::abort(Response::SERVER_ERROR);
         }
     }
 
@@ -35,7 +36,7 @@ class Database
             return $this;
         } catch (Throwable $e) {
             logger($e->getMessage());
-            abort(Response::SERVER_ERROR);
+            Router::abort(Response::SERVER_ERROR);
         }
     }
 
@@ -54,7 +55,7 @@ class Database
         $result = $this->statement->fetch();
 
         if (! $result) {
-            abort(Response::NOT_FOUND);
+            Router::abort(Response::NOT_FOUND);
         }
 
         return $result;

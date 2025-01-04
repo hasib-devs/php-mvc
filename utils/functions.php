@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Router;
 
 function dd($value): void
 {
@@ -12,13 +13,6 @@ function dd($value): void
 function base_path(string $path): string
 {
     return BASE_PATH . $path;
-}
-
-function abort(int $status = Response::NOT_FOUND): void
-{
-    http_response_code($status);
-    view($status);
-    die();
 }
 
 function getController(string $value): string
@@ -40,7 +34,7 @@ function logger(string $value): void
 function authorize(bool $condition, int $status = Response::FORBIDDEN)
 {
     if (! $condition) {
-        abort($status);
+        Router::abort($status);
     }
 }
 
@@ -58,16 +52,7 @@ function createSlug($title)
     return $slug;
 }
 
-function redirect(string $url, int $status = Response::OK)
-{
-    http_response_code($status);
-    header("Location: {$url}");
-    exit();
-}
-
 function sanitizeInput(string $string): string
 {
-
-    // return htmlspecialchars(trim($string));
     return htmlspecialchars(preg_replace('/\s+/', ' ', trim($string)));
 }

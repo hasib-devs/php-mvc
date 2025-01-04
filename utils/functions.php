@@ -7,10 +7,10 @@ function dd($value): void
     die(1);
 }
 
-function abort(int $code = Response::NOT_FOUND): void
+function abort(int $status = Response::NOT_FOUND): void
 {
-    http_response_code($code);
-    require getcwd() . "/views/{$code}.php";
+    http_response_code($status);
+    require getcwd() . "/views/{$status}.php";
     die();
 }
 
@@ -43,4 +43,25 @@ function authorize(bool $condition, int $status = Response::FORBIDDEN)
     if (! $condition) {
         abort($status);
     }
+}
+
+function createSlug($title)
+{
+    // Convert to lowercase
+    $slug = strtolower($title);
+
+    // Replace non-alphanumeric characters with hyphens
+    $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
+
+    // Trim leading/trailing hyphens
+    $slug = trim($slug, '-');
+
+    return $slug;
+}
+
+function redirect(string $url, int $status = Response::OK)
+{
+    http_response_code($status);
+    header("Location: {$url}");
+    exit();
 }

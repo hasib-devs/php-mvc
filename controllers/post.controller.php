@@ -3,8 +3,7 @@
 $id = $_GET["id"];
 
 if (empty($id)) {
-    header("Location: /posts");
-    exit();
+    redirect("/posts");
 }
 
 $user_id = 4;

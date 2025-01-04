@@ -1,4 +1,6 @@
 <?php
 $pageTitle = "About Page";
 
-require view('about');
+view('about', [
+    'pageTitle' => $pageTitle,
+]);

@@ -3,4 +3,7 @@ $pageTitle = "Blog Posts";
 
 $posts = $GLOBALS['db']->query("select * from posts")->findAll();
 
-require view('posts/index');
+view('posts/index', [
+    'pageTitle' => $pageTitle,
+    'posts' => $posts
+]);

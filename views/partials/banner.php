@@ -5,11 +5,11 @@
                 <?= $pageTitle ?>
             </h1>
 
-            <?php if ($currentPath === '/posts') : ?>
+            <?php if ($GLOBALS['currentPath'] === '/posts') : ?>
                 <a href="/posts/create" class="border rounded-lg px-4 py-1.5">Create New Post</a>
             <?php endif ?>
 
-            <?php if ($currentPath === '/post') : ?>
+            <?php if ($GLOBALS['currentPath'] === '/post') : ?>
                 <a href="/posts/edit?id=<?= $_GET['id'] ?>" class="border rounded-lg px-4 py-1.5">Edit</a>
             <?php endif ?>
         </div>

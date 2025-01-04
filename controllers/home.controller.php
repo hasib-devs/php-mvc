@@ -1,4 +1,6 @@
 <?php
 $pageTitle = "Home Page";
 
-require view('home');
+view('home', [
+    'pageTitle' => $pageTitle,
+]);

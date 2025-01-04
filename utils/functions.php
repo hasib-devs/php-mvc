@@ -23,9 +23,10 @@ function getController(string $value): string
     return base_path("controllers/{$value}.controller.php");
 }
 
-function view(string $value): string
+function view(string $value, array $attributes = []): void
 {
-    return base_path("views/{$value}.view.php");
+    extract($attributes);
+    require base_path("views/{$value}.view.php");
 }
 
 function routeToController(string $currentPath, array $routes): void

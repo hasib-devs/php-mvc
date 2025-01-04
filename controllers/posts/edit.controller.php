@@ -2,4 +2,6 @@
 $pageTitle = "Edit Post";
 
 
-require view('posts/edit');
+view('posts/edit', [
+    'pageTitle' => $pageTitle,
+]);

@@ -18,4 +18,7 @@ $post = $GLOBALS['db']->query(
 
 $pageTitle = $post['title'];
 
-require view('posts/show');
+view('posts/show', [
+    'pageTitle' => $pageTitle,
+    'post' => $post,
+]);

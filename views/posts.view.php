@@ -13,9 +13,9 @@ require 'partials/banner.php';
             </div>
         <?php endif ?>
 
-        <ul>
+        <ul role="list" class="space-y-3">
             <?php foreach ($posts as $post): ?>
-                <li class="mb-2">
+                <li class="overflow-hidden rounded-md bg-white px-6 py-4 shadow-sm">
                     <a href="/post?id=<?= $post['id'] ?>" class="text-2xl">
                         <?= $post['title'] ?>
                     </a>

@@ -65,3 +65,10 @@ function redirect(string $url, int $status = Response::OK)
     header("Location: {$url}");
     exit();
 }
+
+function sanitizeInput(string $string): string
+{
+
+    // return htmlspecialchars(trim($string));
+    return htmlspecialchars(preg_replace('/\s+/', ' ', trim($string)));
+}

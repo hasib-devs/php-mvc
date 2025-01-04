@@ -12,7 +12,7 @@ require 'partials/banner.php';
 
         <div class="overflow-hidden rounded-lg bg-white shadow-sm">
             <div class="px-4 py-5 sm:p-6">
-                <p>
+                <p class="whitespace-pre-line">
                     <?= $post['content'] ?>
                 </p>
             </div>

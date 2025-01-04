@@ -14,7 +14,7 @@ $post = $GLOBALS['db']->query(
     ['id' => $id]
 )->findOrFail();
 
-authorize($user_id === $post['user_id']);
+// authorize($user_id === $post['user_id']);
 
 $pageTitle = $post['title'];
 

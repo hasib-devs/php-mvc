@@ -1,31 +1,31 @@
 <?php
+require "utils/Validator.php";
+
 $pageTitle = "Create New Post";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $title = htmlspecialchars($_POST['title']);
-    $content = htmlspecialchars($_POST['content']);
+    $title = sanitizeInput($_POST['title']);
+    $content = sanitizeInput($_POST['content']);
     $user_id = $_POST['user_id'];
     $status = 'published';
     $slug = createSlug($title);
-
     $errors = [];
-    if (strlen($title) === 0) {
+    if (!Validator::string($title)) {
         $errors['title'] = 'Title is required.';
-    }
-    if (strlen($title) > 255) {
+    } else if (!Validator::string($title, 1, 255)) {
         $errors['title'] = "Title can't be more then 255 characters.";
     }
 
-    if (strlen($content) === 0) {
+    if (!Validator::string($content)) {
         $errors['content'] = 'Content is required';
-    }
-
-    if (strlen($content) > 1000) {
+    } else if (!Validator::string($content, 1, 1000)) {
         $errors['content'] = "Post content can't be more then 1000 characters.";
     }
 
     if (empty($user_id)) {
         $errors['user_id'] = "Post must have a author.";
+    } else if (filter_var($user_id, FILTER_VALIDATE_INT) === false) {
+        $errors['user_id'] = "Author ID not valid";
     }
 
     if (empty($errors)) {

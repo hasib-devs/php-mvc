@@ -4,7 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Router;
 
-$pageTitle = "Edit Post";
+$pageTitle = "Update Post";
 
 $id = $_GET["id"];
 
@@ -23,4 +23,5 @@ $post = $db->query(
 view('posts/edit', [
     'pageTitle' => $pageTitle,
     'users' => $users,
+    'post' => $post,
 ]);

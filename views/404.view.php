@@ -1,4 +1,7 @@
 <?php
+
+use Core\Response;
+
 $pageTitle = "Not Found";
 view('partials/head', [
     'pageTitle' => $pageTitle,

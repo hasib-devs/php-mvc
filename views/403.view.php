@@ -1,4 +1,7 @@
 <?php
+
+use Core\Response;
+
 $pageTitle = "Unauthorize";
 view('partials/head', [
     'pageTitle' => $pageTitle,

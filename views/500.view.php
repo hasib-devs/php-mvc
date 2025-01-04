@@ -1,4 +1,7 @@
 <?php
+
+use Core\Response;
+
 $pageTitle = "Server Error";
 view('partials/head', [
     'pageTitle' => $pageTitle,

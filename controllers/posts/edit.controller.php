@@ -1,4 +1,7 @@
 <?php
+
+use Core\Database;
+
 $pageTitle = "Edit Post";
 
 $id = $_GET["id"];

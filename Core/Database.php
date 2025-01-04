@@ -1,4 +1,11 @@
 <?php
+
+namespace Core;
+
+use PDO;
+use PDOStatement;
+use Throwable;
+
 class Database
 {
     private PDO $connection;

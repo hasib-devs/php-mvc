@@ -1,5 +1,5 @@
 <?php
-require "utils/Validator.php";
+require base_path("utils/Validator.php");
 
 $pageTitle = "Create New Post";
 

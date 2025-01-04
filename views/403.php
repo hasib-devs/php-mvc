@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Unauthorize";
-require 'views/partials/head.php';
-require 'views/partials/nav.php';
+require base_path('views/partials/head.php');
+require base_path('views/partials/nav.php');
 ?>
 
 
@@ -25,5 +25,5 @@ require 'views/partials/nav.php';
 </section>
 
 <?php
-require 'views/partials/footer.php';
+require base_path('views/partials/footer.php');
 ?>

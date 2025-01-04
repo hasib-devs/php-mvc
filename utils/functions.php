@@ -6,22 +6,26 @@ function dd($value): void
     echo '</pre>';
     die(1);
 }
+function base_path(string $path): string
+{
+    return BASE_PATH . $path;
+}
 
 function abort(int $status = Response::NOT_FOUND): void
 {
     http_response_code($status);
-    require "views/{$status}.php";
+    require base_path("views/{$status}.php");
     die();
 }
 
 function getController(string $value): string
 {
-    return "controllers/{$value}.controller.php";
+    return base_path("controllers/{$value}.controller.php");
 }
 
 function view(string $value): string
 {
-    return "views/{$value}.view.php";
+    return base_path("views/{$value}.view.php");
 }
 
 function routeToController(string $currentPath, array $routes): void

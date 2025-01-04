@@ -6,14 +6,15 @@ if (empty($id)) {
     redirect("/posts");
 }
 
-$user_id = 4;
+$config = require base_path('utils/config.php');
+$db = new Database($config['database']);
 
-
-$post = $GLOBALS['db']->query(
+$post = $db->query(
     "select * from posts where id = :id",
     ['id' => $id]
 )->findOrFail();
 
+// $user_id = 4;
 // authorize($user_id === $post['user_id']);
 
 $pageTitle = $post['title'];

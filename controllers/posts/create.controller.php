@@ -1,5 +1,7 @@
 <?php
 require base_path("utils/Validator.php");
+$config = require base_path('utils/config.php');
+$db = new Database($config['database']);
 
 $pageTitle = "Create New Post";
 $errors = [];
@@ -29,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     if (empty($errors)) {
-        $GLOBALS['db']->query("INSERT INTO `posts` (`title`, `content`, `slug`, `status`, `user_id`) VALUES (:title, :content, :slug, :status, :user_id)", [
+        $db->query("INSERT INTO `posts` (`title`, `content`, `slug`, `status`, `user_id`) VALUES (:title, :content, :slug, :status, :user_id)", [
             "title" => $title,
             "content" => $content,
             "slug" => $slug,
@@ -41,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 }
 
-$users = $GLOBALS['db']->query("select id, name from users")->findAll();
+$users = $db->query("select id, name from users")->findAll();
 
 view('posts/create', [
     'pageTitle' => $pageTitle,

@@ -7,8 +7,11 @@ if (empty($id)) {
     redirect("/posts");
 }
 
-$users = $GLOBALS['db']->query("select id, name from users")->findAll();
-$post = $GLOBALS['db']->query(
+$config = require base_path('utils/config.php');
+$db = new Database($config['database']);
+
+$users = $db->query("select id, name from users")->findAll();
+$post = $db->query(
     "select * from posts where id = :id",
     ['id' => $id]
 )->findOrFail();

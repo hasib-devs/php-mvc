@@ -1,7 +1,8 @@
 <?php
 $pageTitle = "Blog Posts";
-
-$posts = $GLOBALS['db']->query("select * from posts")->findAll();
+$config = require base_path('utils/config.php');
+$db = new Database($config['database']);
+$posts = $db->query("select * from posts")->findAll();
 
 view('posts/index', [
     'pageTitle' => $pageTitle,

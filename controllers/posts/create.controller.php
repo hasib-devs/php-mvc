@@ -43,4 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 $users = $GLOBALS['db']->query("select id, name from users")->findAll();
 
-require view('create-post');
+require view('posts/create');

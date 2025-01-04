@@ -2,4 +2,4 @@
 $pageTitle = "Edit Post";
 
 
-require view('edit-post');
+require view('posts/edit');

@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "Server Error";
-require 'partials/head.php';
+require 'views/partials/head.php';
 ?>
 
 
@@ -22,5 +22,5 @@ require 'partials/head.php';
 </section>
 
 <?php
-require 'partials/footer.php';
+require 'views/partials/footer.php';
 ?>

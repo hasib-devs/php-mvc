@@ -10,18 +10,18 @@ function dd($value): void
 function abort(int $status = Response::NOT_FOUND): void
 {
     http_response_code($status);
-    require getcwd() . "/views/{$status}.php";
+    require "views/{$status}.php";
     die();
 }
 
 function getController(string $value): string
 {
-    return getcwd() . "/controllers/{$value}.controller.php";
+    return "controllers/{$value}.controller.php";
 }
 
 function view(string $value): string
 {
-    return getcwd() . "/views/{$value}.view.php";
+    return "views/{$value}.view.php";
 }
 
 function routeToController(string $currentPath, array $routes): void

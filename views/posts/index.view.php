@@ -1,11 +1,11 @@
 <?php
-require 'partials/head.php';
-require 'partials/nav.php';
-require 'partials/banner.php';
+require 'views/partials/head.php';
+require 'views/partials/nav.php';
+require 'views/partials/banner.php';
 ?>
 
 <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
 
         <?php if (empty($posts)): ?>
             <div>
@@ -15,8 +15,8 @@ require 'partials/banner.php';
 
         <ul role="list" class="space-y-3">
             <?php foreach ($posts as $post): ?>
-                <li class="overflow-hidden rounded-md bg-white px-6 py-4 shadow-sm">
-                    <a href="/post?id=<?= $post['id'] ?>" class="text-2xl">
+                <li>
+                    <a href="/post?id=<?= $post['id'] ?>" class="text-2xl truncate block overflow-hidden rounded-md bg-white px-6 py-4 shadow-sm">
                         <?= $post['title'] ?>
                     </a>
                 </li>
@@ -26,5 +26,5 @@ require 'partials/banner.php';
 </main>
 
 <?php
-require 'partials/footer.php';
+require 'views/partials/footer.php';
 ?>

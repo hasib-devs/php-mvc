@@ -1,5 +1,7 @@
 <?php
-view('partials/head');
+view('partials/head', [
+    'pageTitle' => $pageTitle,
+]);
 view('partials/nav');
 view('partials/banner', [
     'pageTitle' => $pageTitle,

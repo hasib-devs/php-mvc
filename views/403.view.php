@@ -1,6 +1,8 @@
 <?php
 $pageTitle = "Unauthorize";
-view('partials/head');
+view('partials/head', [
+    'pageTitle' => $pageTitle,
+]);
 view('partials/nav');
 ?>
 

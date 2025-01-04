@@ -1,6 +1,8 @@
 <?php
 $pageTitle = "Not Found";
-view('partials/head');
+view('partials/head', [
+    'pageTitle' => $pageTitle,
+]);
 view('partials/nav');
 ?>
 

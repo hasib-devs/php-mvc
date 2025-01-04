@@ -1,6 +1,8 @@
 <?php
 $pageTitle = "Server Error";
-view('partials/head');
+view('partials/head', [
+    'pageTitle' => $pageTitle,
+]);
 ?>
 
 

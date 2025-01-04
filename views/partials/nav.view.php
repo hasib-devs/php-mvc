@@ -1,7 +1,9 @@
 <?php
+
 function isActive(string $route): string
 {
-    if ($GLOBALS['currentPath'] === $route) {
+    $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if ($currentPath === $route) {
         return 'bg-gray-900 text-white';
     }
     return 'text-gray-300 hover:bg-gray-700 hover:text-white';

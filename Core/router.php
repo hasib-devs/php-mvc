@@ -1,5 +1,5 @@
 <?php
-$routes = require base_path('routes.php');
+$routes = require base_path('Core/routes.php');
 
 function routeToController(array $routes): void
 {

@@ -7,7 +7,7 @@ if (empty($id)) {
     redirect("/posts");
 }
 
-$config = require base_path('utils/config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $users = $db->query("select id, name from users")->findAll();

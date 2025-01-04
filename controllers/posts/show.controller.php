@@ -6,7 +6,7 @@ if (empty($id)) {
     redirect("/posts");
 }
 
-$config = require base_path('utils/config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $post = $db->query(

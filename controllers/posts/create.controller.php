@@ -1,5 +1,5 @@
 <?php
-$config = require base_path('utils/config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $pageTitle = "Create New Post";

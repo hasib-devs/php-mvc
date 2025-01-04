@@ -2,6 +2,7 @@
 require base_path("utils/Validator.php");
 
 $pageTitle = "Create New Post";
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $title = sanitizeInput($_POST['title']);
@@ -9,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $user_id = $_POST['user_id'];
     $status = 'published';
     $slug = createSlug($title);
-    $errors = [];
     if (!Validator::string($title)) {
         $errors['title'] = 'Title is required.';
     } else if (!Validator::string($title, 1, 255)) {
@@ -45,4 +45,6 @@ $users = $GLOBALS['db']->query("select id, name from users")->findAll();
 
 view('posts/create', [
     'pageTitle' => $pageTitle,
+    'users' => $users,
+    'errors' => $errors,
 ]);

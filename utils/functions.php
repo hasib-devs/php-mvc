@@ -14,7 +14,7 @@ function base_path(string $path): string
 function abort(int $status = Response::NOT_FOUND): void
 {
     http_response_code($status);
-    require base_path("views/{$status}.php");
+    view($status);
     die();
 }
 
@@ -27,15 +27,6 @@ function view(string $value, array $attributes = []): void
 {
     extract($attributes);
     require base_path("views/{$value}.view.php");
-}
-
-function routeToController(string $currentPath, array $routes): void
-{
-    if (array_key_exists($currentPath, $routes)) {
-        require $routes[$currentPath];
-    } else {
-        abort(Response::NOT_FOUND);
-    }
 }
 
 function logger(string $value): void

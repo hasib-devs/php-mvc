@@ -11,5 +11,4 @@ $config = require base_path('utils/config.php');
 $db = new Database($config['database']);
 
 
-$routes = require base_path('routes.php');
-routeToController($currentPath, $routes);
+require base_path('router.php');

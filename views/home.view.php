@@ -1,7 +1,9 @@
 <?php
-require base_path('views/partials/head.php');
-require base_path('views/partials/nav.php');
-require base_path('views/partials/banner.php');
+view('partials/head');
+view('partials/nav');
+view('partials/banner', [
+    'pageTitle' => $pageTitle,
+]);
 ?>
 
 <main>
@@ -11,5 +13,5 @@ require base_path('views/partials/banner.php');
 </main>
 
 <?php
-require base_path('views/partials/footer.php');
+view('partials/footer');
 ?>

@@ -1,10 +1,10 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $pageTitle = "Blog Posts";
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 $posts = $db->query("select * from posts")->findAll();
 
 view('posts/index', [

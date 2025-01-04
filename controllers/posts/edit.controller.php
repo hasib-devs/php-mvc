@@ -1,5 +1,6 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Router;
 
@@ -11,8 +12,7 @@ if (empty($id)) {
     Router::redirect("/posts");
 }
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $users = $db->query("select id, name from users")->findAll();
 $post = $db->query(

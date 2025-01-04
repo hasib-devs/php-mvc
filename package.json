@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tw:watch": "npx tailwindcss -i ./assets/style.css -o ./public/assets/style.css --watch"
+    "tw:watch": "npx tailwindcss -i ./assets/style.css -o ./public/assets/style.css --watch",
+    "tw:build": "npx tailwindcss -i ./assets/style.css -o ./public/assets/style.css"
   },
   "keywords": [],
   "author": "",

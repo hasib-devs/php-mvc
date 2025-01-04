@@ -14,7 +14,7 @@ view('partials/banner', [
             Go Back
         </a>
 
-        <form method="POST">
+        <form action="/posts/store" method="POST">
             <div class="grid grid-cols-[2fr,1fr] gap-6">
                 <div>
                     <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>

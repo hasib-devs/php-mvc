@@ -15,5 +15,6 @@ $router = new Core\Router();
 require base_path("routes.php");
 
 $currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$requestMethod = $_SERVER['REQUEST_METHOD'];
+$requestMethod =  $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
 $router->route($currentUri, $requestMethod);

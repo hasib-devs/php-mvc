@@ -8,27 +8,27 @@ class Router
 
     public function get(string $uri, string $controller)
     {
-        $this->appendRoute($uri, $controller, 'GET');
+        $this->append($uri, $controller, 'GET');
     }
 
     public function post(string $uri, string $controller)
     {
-        $this->appendRoute($uri, $controller, 'POST');
+        $this->append($uri, $controller, 'POST');
     }
 
     public function put(string $uri, string $controller)
     {
-        $this->appendRoute($uri, $controller, 'PUT');
+        $this->append($uri, $controller, 'PUT');
     }
 
     public function patch(string $uri, string $controller)
     {
-        $this->appendRoute($uri, $controller, 'PATCH');
+        $this->append($uri, $controller, 'PATCH');
     }
 
     public function delete(string $uri, string $controller)
     {
-        $this->appendRoute($uri, $controller, "DELETE");
+        $this->append($uri, $controller, "DELETE");
     }
 
     public function route(string $uri, string $method)
@@ -49,14 +49,14 @@ class Router
         die();
     }
 
-    public static function redirect(string $url, int $status = Response::OK)
+    public static function redirect(string $uri, int $status = Response::OK)
     {
         http_response_code($status);
-        header("Location: {$url}");
+        header("Location: {$uri}");
         exit();
     }
 
-    private function appendRoute(string $uri, string $controller, string $method)
+    private function append(string $uri, string $controller, string $method)
     {
         $this->routes[] = [
             'uri' => $uri,

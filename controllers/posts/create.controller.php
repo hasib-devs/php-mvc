@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     if (empty($errors)) {
-        $db->query("INSERT INTO `posts` (`title`, `content`, `slug`, `status`, `user_id`) VALUES (:title, :content, :slug, :status, :user_id)", [
+        $db->query("INSERT INTO posts (title, content, slug, status, user_id) VALUES (:title, :content, :slug, :status, :user_id)", [
             "title" => $title,
             "content" => $content,
             "slug" => $slug,

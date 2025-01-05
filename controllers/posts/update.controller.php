@@ -51,4 +51,4 @@ $db->query("UPDATE posts SET title = :title, content = :content, slug = :slug, s
     "post_id" => $post_id,
 ]);
 
-Router::redirect("/posts");
+Router::redirect("/post?id=$post_id");

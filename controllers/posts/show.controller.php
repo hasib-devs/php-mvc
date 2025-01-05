@@ -17,6 +17,9 @@ $post = $db->query(
     ['id' => $id]
 )->findOrFail();
 
+$author = $db->query("select * from users where id = :id", ['id' => $post['user_id']])->find();
+$post['author'] = $author;
+
 // $user_id = 4;
 // authorize($user_id === $post['user_id']);
 

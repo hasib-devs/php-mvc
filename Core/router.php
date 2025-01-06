@@ -56,6 +56,13 @@ class Router
         exit();
     }
 
+    public static function back()
+    {
+        $uri = $_SERVER['HTTP_REFERER'];
+        header("Location: {$uri}");
+        exit();
+    }
+
     private function append(string $uri, string $controller, string $method)
     {
         $this->routes[] = [

@@ -1,5 +1,6 @@
 <?php
-$pageTitle = "Home Page";
+$userName =  $_SESSION['user']['name'] ?? "Guest";
+$pageTitle = "Hello, {$userName}";
 
 view('home', [
     'pageTitle' => $pageTitle,

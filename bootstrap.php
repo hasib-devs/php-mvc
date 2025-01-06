@@ -5,6 +5,8 @@ use Core\Container;
 use Core\Database;
 use Core\Router;
 
+session_start();
+
 $container = new Container();
 
 $container->bind(Database::class, function () {

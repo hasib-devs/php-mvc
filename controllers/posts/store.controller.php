@@ -39,6 +39,7 @@ if (!empty($errors)) {
         'users' => $users,
         'errors' => $errors,
     ]);
+    exit();
 }
 
 $db->query("INSERT INTO posts (title, content, slug, status, user_id) VALUES (:title, :content, :slug, :status, :user_id)", [

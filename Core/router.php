@@ -9,26 +9,31 @@ class Router
     public function get(string $uri, string $controller)
     {
         $this->append($uri, $controller, 'GET');
+        return $this;
     }
 
     public function post(string $uri, string $controller)
     {
         $this->append($uri, $controller, 'POST');
+        return $this;
     }
 
     public function put(string $uri, string $controller)
     {
         $this->append($uri, $controller, 'PUT');
+        return $this;
     }
 
     public function patch(string $uri, string $controller)
     {
         $this->append($uri, $controller, 'PATCH');
+        return $this;
     }
 
     public function delete(string $uri, string $controller)
     {
         $this->append($uri, $controller, "DELETE");
+        return $this;
     }
 
     public function route(string $uri, string $method)
@@ -67,7 +72,7 @@ class Router
     {
         $this->routes[] = [
             'uri' => $uri,
-            'controller' => $controller,
+            'controller' => getController($controller),
             'method' => $method,
         ];
     }

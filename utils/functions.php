@@ -17,7 +17,7 @@ function base_path(string $path): string
 
 function getController(string $value): string
 {
-    return base_path("controllers/{$value}.controller.php");
+    return base_path("http/controllers/{$value}.controller.php");
 }
 
 function view(string $value, array $attributes = []): void

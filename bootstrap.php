@@ -18,7 +18,7 @@ App::setContainer($container);
 
 $router = new Router();
 
-require base_path("web/routes.php");
+require base_path("http/routes/index.php");
 
 $currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $requestMethod = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];

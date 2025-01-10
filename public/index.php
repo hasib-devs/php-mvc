@@ -10,4 +10,4 @@ spl_autoload_register(function ($class): void {
     require base_path("{$result}.php");
 });
 
-require base_path('bootstrap.php');
+require "./bootstrap.php";

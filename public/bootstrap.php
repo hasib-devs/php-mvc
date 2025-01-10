@@ -4,6 +4,7 @@ use Core\App;
 use Core\Container;
 use Core\Database;
 use Core\Router;
+use Core\Session;
 
 session_start();
 
@@ -24,3 +25,5 @@ $currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $requestMethod = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($currentUri, $requestMethod);
+
+Session::unflash();

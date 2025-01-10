@@ -1,6 +1,7 @@
 <?php
 
 use Core\Router;
+use Core\Session;
 
 if ($_SESSION['user'] ?? false) {
     Router::redirect('/');
@@ -8,4 +9,5 @@ if ($_SESSION['user'] ?? false) {
 
 view('login/login', [
     'pageTitle' => "Login to your account",
+    'errors' => Session::get('errors') ?? [],
 ]);

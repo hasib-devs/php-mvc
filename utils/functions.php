@@ -56,3 +56,23 @@ function sanitizeInput(string $string): string
 {
     return htmlspecialchars(preg_replace('/\s+/', ' ', trim($string)));
 }
+
+function login(array $user)
+{
+    $_SESSION['user'] = [
+        'id' => $user['id'],
+        'name' => $user['name'],
+        'email' => $user['email'],
+    ];
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+    $params = session_get_cookie_params();
+
+    session_destroy();
+    setcookie("PHPSESSID", '', time() - 3600, $params['path'], $params['domain']);
+}

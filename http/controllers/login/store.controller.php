@@ -37,10 +37,6 @@ if (!empty($errors)) {
 }
 
 
-$_SESSION['user'] = [
-    'id' => $user['id'],
-    'name' => $user['name'],
-    'email' => $user['email'],
-];
+login($user);
 
 Router::redirect('/');

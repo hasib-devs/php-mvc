@@ -2,5 +2,5 @@
 
 use Core\Router;
 
-unset($_SESSION['user']);
-Router::back();
+logout();
+Router::redirect('/');

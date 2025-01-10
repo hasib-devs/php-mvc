@@ -54,7 +54,7 @@ function isActive(string $route): string
                         <?php else : ?>
                             <div>
                                 <a href="/login" class="hover:text-indigo-500">Login</a>
-                                <span>/</span>
+                                <span> / </span>
                                 <a href="/register" class="hover:text-indigo-500">Register</a>
                             </div>
                         <?php endif ?>

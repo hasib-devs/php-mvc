@@ -46,9 +46,8 @@ $db->query("INSERT INTO users (name, email, password) VALUES (:name, :email, :pa
     'password' => password_hash($password, PASSWORD_BCRYPT),
 ]);
 
-$_SESSION['user'] = [
-    'name' => $name,
-    'email' => $email,
-];
+$user = $db->query("SELECT id, name, email FROM users WHERE email = :email", ['email' => $email])->find();
+
+$_SESSION['user'] = $user;
 
 Router::redirect('/');

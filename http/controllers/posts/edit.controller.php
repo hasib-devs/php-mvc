@@ -14,7 +14,6 @@ if (empty($id)) {
 
 $db = App::resolve(Database::class);
 
-$users = $db->query("SELECT id, name FROM users")->findAll();
 $post = $db->query(
     "SELECT * FROM posts WHERE id = :id",
     ['id' => $id]
@@ -22,6 +21,5 @@ $post = $db->query(
 
 view('posts/edit', [
     'pageTitle' => $pageTitle,
-    'users' => $users,
     'post' => $post,
 ]);

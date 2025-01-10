@@ -18,7 +18,7 @@ if (!Validator::string($password)) {
     $errors['password'] = "Password is required";
 }
 
-$user = $db->query("SELECT name, email, password FROM users WHERE email = :email", ['email' => $email])->find();
+$user = $db->query("SELECT id, name, email, password FROM users WHERE email = :email", ['email' => $email])->find();
 if ($user) {
     if (! password_verify($password, $user['password'])) {
         $errors['password'] = "Password doesn't match";
@@ -38,6 +38,7 @@ if (!empty($errors)) {
 
 
 $_SESSION['user'] = [
+    'id' => $user['id'],
     'name' => $user['name'],
     'email' => $user['email'],
 ];

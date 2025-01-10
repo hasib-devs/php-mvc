@@ -22,47 +22,19 @@ $postContent = $_POST['content'] ?? $post['content'] ?? "";
         <form action="/posts/update" method="POST">
             <input type="hidden" name="_method" value="patch">
             <input type="hidden" name="id" value="<?= $post['id'] ?>">
-            <div class="grid grid-cols-[2fr,1fr] gap-6">
-                <div>
-                    <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
-                    <div class="mt-2">
-                        <div
-                            class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                            <input value="<?= $postTitle ?>" type="text" name="title" id="title"
-                                class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                                placeholder="Post Title">
-                        </div>
+            <div>
+                <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
+                <div class="mt-2">
+                    <div
+                        class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                        <input value="<?= $postTitle ?>" type="text" name="title" id="title"
+                            class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                            placeholder="Post Title">
                     </div>
-                    <?php if (isset($errors['title'])): ?>
-                        <p class="mt-2 text-sm text-red-600"> <?= $errors['title'] ?> </p>
-                    <?php endif ?>
                 </div>
-
-
-                <div class="">
-                    <label for="author" class="block text-sm/6 font-medium text-gray-900">Author</label>
-                    <div class="mt-2 grid grid-cols-1">
-
-                        <select id="author" name="user_id"
-                            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                            <option value="">Select Author</option>
-                            <?php foreach ($users as $user): ?>
-                                <option value="<?= $user['id'] ?>" <?= isset($postUser) && $postUser == $user['id'] ? 'selected' : '' ?>>
-                                    <?= $user['name'] ?>
-                                </option>
-                            <?php endforeach ?>
-                        </select>
-                        <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-                            viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
-                            <path fill-rule="evenodd"
-                                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <?php if (isset($errors['user_id'])): ?>
-                        <p class="mt-2 text-sm text-red-600"> <?= $errors['user_id'] ?> </p>
-                    <?php endif ?>
-                </div>
+                <?php if (isset($errors['title'])): ?>
+                    <p class="mt-2 text-sm text-red-600"> <?= $errors['title'] ?> </p>
+                <?php endif ?>
             </div>
 
             <div class="mt-6">

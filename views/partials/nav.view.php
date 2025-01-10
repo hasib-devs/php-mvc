@@ -25,8 +25,10 @@ function isActive(string $route): string
                         <a href="/" class="<?= isActive('/') ?> rounded-md px-3 py-2 text-sm font-medium">Home</a>
                         <a href="/about"
                             class="<?= isActive('/about') ?> rounded-md px-3 py-2 text-sm font-medium">About</a>
-                        <a href="/posts"
-                            class="<?= isActive('/posts') ?> rounded-md px-3 py-2 text-sm font-medium">Posts</a>
+                        <?php if (isset($_SESSION['user'])) : ?>
+                            <a href="/posts"
+                                class="<?= isActive('/posts') ?> rounded-md px-3 py-2 text-sm font-medium">Posts</a>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>

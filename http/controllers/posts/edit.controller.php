@@ -14,9 +14,9 @@ if (empty($id)) {
 
 $db = App::resolve(Database::class);
 
-$users = $db->query("select id, name from users")->findAll();
+$users = $db->query("SELECT id, name FROM users")->findAll();
 $post = $db->query(
-    "select * from posts where id = :id",
+    "SELECT * FROM posts WHERE id = :id",
     ['id' => $id]
 )->findOrFail();
 

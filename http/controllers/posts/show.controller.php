@@ -13,11 +13,11 @@ if (empty($id)) {
 $db = App::resolve(Database::class);
 
 $post = $db->query(
-    "select * from posts where id = :id",
+    "SELECT * FROM posts WHERE id = :id",
     ['id' => $id]
 )->findOrFail();
 
-$author = $db->query("select * from users where id = :id", ['id' => $post['user_id']])->find();
+$author = $db->query("SELECT id, name FROM users WHERE id = :id", ['id' => $post['user_id']])->find();
 $post['author'] = $author;
 
 // $user_id = 4;

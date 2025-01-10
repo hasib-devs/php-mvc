@@ -5,7 +5,7 @@ use Core\Database;
 
 $pageTitle = "Blog Posts";
 $db = App::resolve(Database::class);
-$posts = $db->query("select * from posts")->findAll();
+$posts = $db->query("SELECT * FROM posts")->findAll();
 
 view('posts/index', [
     'pageTitle' => $pageTitle,

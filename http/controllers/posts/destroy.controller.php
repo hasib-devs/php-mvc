@@ -9,7 +9,7 @@ $id = $_POST['id'];
 $db = App::resolve(Database::class);
 
 $post = $db->query(
-    "select * from posts where id = :id",
+    "SELECT * FROM posts WHERE id = :id",
     ['id' => $id]
 )->findOrFail();
 

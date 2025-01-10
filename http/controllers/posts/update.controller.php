@@ -34,7 +34,7 @@ if (empty($user_id)) {
 }
 
 if (!empty($errors)) {
-    $users = $db->query("select id, name from users")->findAll();
+    $users = $db->query("SELECT id, name FROM users")->findAll();
     view('posts/edit', [
         'pageTitle' => "Update Post",
         'users' => $users,

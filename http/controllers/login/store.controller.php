@@ -20,7 +20,7 @@ if (!Validator::string($password)) {
 
 $user = $db->query("SELECT name, email, password FROM users WHERE email = :email", ['email' => $email])->find();
 if ($user) {
-    if ($user['password'] !== $password) {
+    if (! password_verify($password, $user['password'])) {
         $errors['password'] = "Password doesn't match";
     }
 } else {

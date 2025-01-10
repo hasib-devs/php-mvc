@@ -5,7 +5,7 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$users = $db->query("select id, name from users")->findAll();
+$users = $db->query("SELECT id, name FROM users")->findAll();
 
 view('posts/create', [
     'pageTitle' => "Create New Post",

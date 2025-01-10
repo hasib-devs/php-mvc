@@ -74,7 +74,7 @@ class Router
     {
         $this->routes[] = [
             'uri' => $uri,
-            'controller' => getController($controller),
+            'controller' => controller($controller),
             'method' => $method,
             'middleware' => null
         ];

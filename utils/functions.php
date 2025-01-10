@@ -1,8 +1,4 @@
 <?php
-
-use Core\Response;
-use Core\Router;
-
 function dd($value): void
 {
     echo '<pre>';
@@ -15,9 +11,9 @@ function base_path(string $path): string
     return BASE_PATH . $path;
 }
 
-function getController(string $value): string
+function controller(string $value): string
 {
-    return base_path("http/controllers/{$value}.controller.php");
+    return base_path("Http/Controllers/{$value}.controller.php");
 }
 
 function view(string $value, array $attributes = []): void
@@ -29,13 +25,6 @@ function view(string $value, array $attributes = []): void
 function logger(string $value): void
 {
     echo "{$value} </br>";
-}
-
-function authorize(bool $condition, int $status = Response::FORBIDDEN)
-{
-    if (! $condition) {
-        Router::abort($status);
-    }
 }
 
 function createSlug($title)

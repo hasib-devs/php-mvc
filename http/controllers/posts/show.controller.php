@@ -20,9 +20,6 @@ $post = $db->query(
 $author = $db->query("SELECT id, name FROM users WHERE id = :id", ['id' => $post['user_id']])->find();
 $post['author'] = $author;
 
-// $user_id = 4;
-// authorize($user_id === $post['user_id']);
-
 $pageTitle = $post['title'];
 
 view('posts/show', [

@@ -1,6 +1,10 @@
 <?php
 
+use Core\Authenticator;
 use Core\Router;
 
-logout();
+$auth = new Authenticator();
+
+$auth->logout();
+
 Router::redirect('/');

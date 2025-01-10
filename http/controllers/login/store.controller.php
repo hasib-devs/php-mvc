@@ -2,18 +2,14 @@
 
 namespace Http\Controllers\Login;
 
-use Core\App;
-use Core\Database;
+use Core\Authenticator;
 use Core\Router;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-
-$db = App::resolve(Database::class);
-$user = $db->query("SELECT id, name, email, password FROM users WHERE email = :email", ['email' => $email])->find();
 $form = new LoginForm();
 
-if (! $form->validate($email, $password, $user)) {
+if (! $form->validate($email, $password)) {
     view('login/login', [
         'pageTitle' => "Login to your account",
         'errors' => $form->errors(),
@@ -22,6 +18,19 @@ if (! $form->validate($email, $password, $user)) {
     exit();
 }
 
-login($user);
+$auth = new Authenticator();
+
+$user = $auth->attempt($email, $password);
+
+if (!$user) {
+    view('login/login', [
+        'pageTitle' => "Login to your account",
+        'errors' => [
+            'password' => "Invalid Email or Password"
+        ],
+    ]);
+
+    exit();
+}
 
 Router::redirect('/');

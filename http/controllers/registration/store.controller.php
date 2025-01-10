@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Database;
 use Core\Router;
 use Core\Validator;
@@ -46,8 +47,7 @@ $db->query("INSERT INTO users (name, email, password) VALUES (:name, :email, :pa
     'password' => password_hash($password, PASSWORD_BCRYPT),
 ]);
 
-$user = $db->query("SELECT id, name, email FROM users WHERE email = :email", ['email' => $email])->find();
-
-login($user);
+$auth = new Authenticator();
+$auth->attempt($email, $password);
 
 Router::redirect('/');

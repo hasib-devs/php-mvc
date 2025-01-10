@@ -21,8 +21,14 @@ if (!Validator::email($email)) {
     $errors['email'] = "Invalid Email Address.";
 }
 
+
 if (!Validator::string($password, 6, 255)) {
     $errors['password'] = "Password should be in between 6-255 characters long.";
+}
+
+$user = $db->query("SELECT id from users WHERE email = :email", ['email' => $email])->find();
+if ($user) {
+    $errors['email'] = "Email already taken.";
 }
 
 if (!empty($errors)) {

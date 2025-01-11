@@ -4,8 +4,6 @@ view('partials/head', [
 ]);
 view('partials/nav');
 
-$email = $_POST['email'] ?? '';
-$password = $_POST['password'] ?? '';
 ?>
 
 <main>
@@ -21,7 +19,7 @@ $password = $_POST['password'] ?? '';
                     <div>
                         <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
                         <div class="mt-2">
-                            <input value="<?= $email ?>" type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                            <input value="<?= old('email') ?>" type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
 
                             <?php if (isset($errors['email'])): ?>
                                 <p class="mt-2 text-sm text-red-600"> <?= $errors['email'] ?> </p>
@@ -34,7 +32,7 @@ $password = $_POST['password'] ?? '';
                             <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
                         </div>
                         <div class="mt-2">
-                            <input value="<?= $password ?>" type="password" name="password" id="password" autocomplete="current-password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                            <input value="<?= old('password') ?>" type="password" name="password" id="password" autocomplete="current-password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
 
                             <?php if (isset($errors['password'])): ?>
                                 <p class="mt-2 text-sm text-red-600"> <?= $errors['password'] ?> </p>

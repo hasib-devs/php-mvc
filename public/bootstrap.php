@@ -5,6 +5,7 @@ use Core\Container;
 use Core\Database;
 use Core\Router;
 use Core\Session;
+use Core\ValidationException;
 
 session_start();
 
@@ -24,6 +25,13 @@ require base_path("http/routes/index.php");
 $currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $requestMethod = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
-$router->route($currentUri, $requestMethod);
+try {
+    $router->route($currentUri, $requestMethod);
+} catch (ValidationException $exception) {
+    Session::flash("errors", $exception->errors);
+    Session::flash("old", $exception->old);
+
+    Router::back();
+}
 
 Session::unflash();

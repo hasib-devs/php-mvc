@@ -4,20 +4,21 @@ namespace Http\Controllers\Login;
 
 use Core\Authenticator;
 use Core\Router;
-use Core\Session;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$form = new LoginForm();
 
-if ($form->validate($email, $password)) {
-    if ((new Authenticator)->attempt($email, $password)) {
-        Router::redirect('/');
-    }
-    $form->error("password", "Invalid Email or Password");
+
+$form = LoginForm::validate([
+    'email' => $email,
+    'password' => $password
+]);
+
+$signedIn = (new Authenticator)->attempt($email, $password);
+
+if (!$signedIn) {
+    $form->error("password", "Invalid Email or Password")->throw();
 }
 
 
-Session::flash("errors", $form->errors());
-
-Router::redirect("/login");
+Router::redirect('/');

@@ -45,3 +45,8 @@ function sanitizeInput(string $string): string
 {
     return htmlspecialchars(preg_replace('/\s+/', ' ', trim($string)));
 }
+
+function old(string $key, mixed $default = '')
+{
+    return \Core\Session::get('old')[$key] ?? $default;
+}

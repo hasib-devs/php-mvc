@@ -1,5 +1,7 @@
 <?php
 
+namespace Http\Controllers\Login;
+
 use Core\Router;
 use Core\Session;
 

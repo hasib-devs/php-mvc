@@ -6,7 +6,9 @@
       "email": "hasib.webdev@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "illuminate/collections": "^11.37"
+  },
   "autoload": {
     "psr-4": {
       "Core\\": "Core/",
